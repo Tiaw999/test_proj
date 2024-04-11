@@ -1,0 +1,41 @@
+<footer id="main-footer">
+    <br /><br /><br /><br />
+<br /><br /><br /><br />
+<br /><br /><br /><br />
+
+    <div class="footer-container">
+        <div id="footer-widgets" class="clearfix">
+            <div class="footer-widget">
+                <div id="custom_html-3" class="widget_text widget fwidget et_pb_widget widget_custom_html">
+                    <div class="textwidget custom-html-widget">
+                        <span style="font-size: 16px; font-weight: bold;">
+                            <a href="https://glazermuseum.org/visit">Plan Your Visit</a> | 
+                            <a href="https://glazermuseum.org/contact">Contact</a> | 
+                            <a href="https://glazermuseum.org/news">News</a> | 
+                            <a href="https://glazermuseum.org/visit/#hours">Hours of Operation</a> |
+                            <a href="/admin">Admin</a>
+                        </span>
+                        <br>
+                        <span style="font-size: 16px;">
+                            Glazer Children’s Museum | 110 W Gasparilla Plaza, Tampa FL 33602 | 813 443 3861
+                            <br>
+                            Copyright &copy; <span id="copyright-year">2024</span> | All rights reserved |
+                        </span>
+                    </div>
+                </div>
+            </div> <!-- end .footer-widget -->
+        </div> <!-- #footer-widgets -->
+    </div> <!-- .footer-container -->
+    <div id="footer-bottom">
+        <div class="container clearfix">
+            <ul id="et-social-icons"></ul>
+        </div> <!-- .container -->
+    </div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const yearSpan = document.getElementById('copyright-year');
+    const currentYear = new Date().getFullYear();
+    yearSpan.textContent = currentYear;
+});
+</script>

@@ -1,0 +1,21 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Test</title>
+    <link rel="stylesheet" href="{% static 'css/image_style.css' %}">
+</head>
+<body>
+    {% for image_info in images_info %}
+        <div class="image-container">
+            <img src="{{ image_info.image_url }}" alt="Image with overlay text">
+            <div class="overlay-text">
+                <h1>{{ image_info.title }}</h1>
+                <p>{{ image_info.subtitle }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</body>
+</html>

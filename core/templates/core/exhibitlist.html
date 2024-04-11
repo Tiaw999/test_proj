@@ -1,0 +1,76 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/searchbar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/exhibitlist.css' %}">
+</head>
+
+<!-- Google Translate Integration -->
+<div id="google_translate_element"></div>
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+            { 
+                pageLanguage: 'en', 
+                includedLanguages: 'en,es',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            },
+            'google_translate_element'
+        );
+    }
+</script>
+
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<div class="search-bar">
+    <form method="GET" action="{% url 'exhibitlist' %}" class="search-form">
+        <input type="text" name="q" placeholder="Search Exhibits..." class="search-input">
+        <button type="submit" class="search-icon-button">
+            <img src="/static/images/dock/icon_search_white.png" alt="Search">
+        </button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('.search-icon-button').click(function(e) {
+        // Check if the search input is already active
+        if ($('.search-input').hasClass('active')) {
+            // The search bar is open, submit the form
+            $(this).closest('form').submit();
+        } else {
+            // Prevent the default action to avoid immediately submitting the form
+            e.preventDefault();
+            // Open the search bar
+            $('.search-input').addClass('active').focus(); // Focus on the input for user convenience
+        }
+    });
+
+    // Optional: Close the search bar if the user clicks outside of it
+    $(document).mouseup(function(e) {
+        var container = $(".search-form");
+        // If the target of the click isn't the container nor a descendant of the container
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+            $('.search-input').removeClass('active');
+        }
+    });
+});
+</script>
+
+<div class="exhibit-container">
+    <h3>Exhibits</h3>
+    <h5>{{ exhibit_count }} exhibits found</h5>
+    {% for exhibit in exhibits %}
+    <!-- Note the <a> tag now wraps the content -->
+    <a href="{% url 'exhibit' exhibit.id %}" class="exhibit" style="background-image: url('{{ exhibit.img.url }}');">
+        <div class="exhibit-text">{{ exhibit.name }}</div>
+    </a>
+    {% endfor %}
+</div>
+
+{% endblock content %}

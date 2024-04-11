@@ -1,0 +1,39 @@
+<div class="dock">
+    <a class="icon-button" onclick="navigateToMap()"><img src="/static/images/dock/icon_map_white.png" alt="Map"></a>
+    <button class="icon-button" onclick="navigateHome()"><img src="/static/images/dock/icon_home_white.png" alt="Home"></button>
+    <button class="icon-button" onclick="showSettingsPopup()"><img src="/static/images/dock/icon_settings_white.png" alt="Settings"></button>
+</div>
+
+<!-- Popup window for settings -->
+<div id="settingsPopup" class="popup" style="display:none;">
+    <div class="popup-content">
+        <span class="close" onclick="closeSettingsPopup()">&times;</span>
+        <h2>Settings</h2>
+        <!-- Add settings options here -->
+        <a href="{% url 'admin:index' %}" class="icon-button">Admin</a>
+    </div>
+</div>
+
+<!-- Additional styling for the popup -->
+<style>
+.popup { position: fixed; top: 0; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; z-index: 999;}
+.popup-content { background: white; padding: 20px; border-radius: 5px; width: 300px; position: relative; z-index: 999; }
+.close { position: absolute; top: 10px; right: 15px; cursor: pointer; }
+</style>
+
+<script>
+    function navigateHome() {
+        window.location.href = '/';
+    }
+    function navigateToMap() {
+        window.location.href = 'https://glazermuseum.org/wp-content/uploads/2024/01/2024-Map.pdf';
+    }
+    // Function to show the settings popup
+    function showSettingsPopup() {
+        document.getElementById('settingsPopup').style.display = 'flex';
+    }
+    // Function to close the settings popup
+    function closeSettingsPopup() {
+        document.getElementById('settingsPopup').style.display = 'none';
+    }
+</script>

@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div>
+    <form method="POST" action="" >
+        {%csrf_token%}
+        {{form.as_p}}
+        <input type="submit" value="Submit" />
+    </form>
+</div>
+<br />
+<div>
+    <h3>Types of Play</h3> <a href="{% url 'play-info' %}">(Learn More)</a>
+    <hr>
+
+    {% for play in play %}
+        <div>
+            <p><b>{{play.name}}: </b>{{play.description}}</p>
+
+    {% endfor %}    
+
+</div>
+<br />
+{% endblock content %}
+
+
+

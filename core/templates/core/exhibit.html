@@ -1,0 +1,40 @@
+<!-- Exhibit Page -->
+<!-- Tia          -->
+<!-- 04-09-24     -->
+
+{% extends 'main.html' %}
+
+{% block content%}
+<h1>{{exhibit.name}}</h1>
+<img src="{{ exhibit.img.url }}" style="max-width: 100%; max-height: 500px; height: auto;">
+<p>{{exhibit.description}}</p>
+<p>If your child likes this exhibit:</p>
+<p style="margin-left: 25px;">
+    Try this at home: {{exhibit.home_sugg}}</p>
+<p style="margin-left: 25px;">
+    Check this out: {{exhibit.outdoor_sugg}}
+</p>
+<br />
+<div>
+<p>We want your feedback! Please tell us the types of play you see:</p> 
+</div>
+<div>
+    <form method="POST" action="">
+        {%csrf_token%}
+        {{form.as_p}}
+        <input type="submit" value="Submit" />
+    </form>
+</div>
+<br />
+<div>
+    <h3>Types of Play</h3> <a href="{% url 'play-info' %}">(Learn More)</a>
+    <hr>
+
+    {% for play in play %}
+        <div>
+            <p><b>{{play.name}}: </b>{{play.description}}</p>
+
+    {% endfor %}    
+
+</div>
+{% endblock content %}

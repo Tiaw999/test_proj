@@ -1,0 +1,17 @@
+.footer-container {
+
+    background-color: #2383c6; /* Footer background color */
+    color: white; /* Footer text color */
+    text-align: center; /* Center-align the text */
+    padding: 20px; /* Add padding for internal spacing */
+    height: 175px; /* Set a specific height for the footer */
+    box-sizing: border-box; /* Ensure padding is included in the height calculation */
+}
+/* Target links within the #main-footer ID */
+#main-footer a,
+#main-footer a:hover,
+#main-footer a:focus,
+#main-footer a:visited {
+  color: white; /* Changes link color to white */
+  text-decoration: none; /* Optional: Removes underline from links */
+}

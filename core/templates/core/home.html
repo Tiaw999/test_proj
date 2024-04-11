@@ -1,0 +1,109 @@
+<!-- Home Page           -->
+<!-- Tia, Nick, and Mike -->
+<!-- 03-26-24            -->
+
+{% extends 'main.html' %}
+
+{% block content %}
+
+<style>
+    /* Global font style */
+    body {
+        font-family: 'Arial', sans-serif;
+    }
+
+    .home-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        width: 100%;
+        max-width: 800px;
+    }
+
+    h3 {
+        background: linear-gradient(to right, #6a11cb, #2575fc); /* Gradient background */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin: 20px 0; /* More space around the header */
+        font-size: 24px; /* Larger font size */
+        font-weight: bold; /* Make it bold */
+    }
+
+    .button-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .button {
+        width: calc(100% - 40px); /* Adjust width considering padding */
+        padding: 15px 20px; /* More padding for a larger button */
+        border: none;
+        cursor: pointer;
+        border-radius: 20px; /* More rounded corners for a modern look */
+        text-align: center;
+        font-size: 18px; /* Larger font size */
+        margin: 10px 0; /* More space between buttons */
+        color: white;
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+    }
+
+    .button:hover {
+        transform: translateY(-3px); /* Slight lift effect on hover */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect for depth */
+    }
+</style>
+
+<!-- Google Translate Integration -->
+<div id="google_translate_element"></div>
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+            { 
+                pageLanguage: 'en', 
+                includedLanguages: 'en,es',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            },
+            'google_translate_element'
+        );
+    }
+</script>
+
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<div class="home-container">
+    <div>
+        <h3>Browse Glazer</h3>
+        <hr>
+        
+        {% for media in media %}
+            <div class="button-container">
+                <button class="button" style="" onclick="window.open('{{ media.url }}', '_blank')">{{ media.name }}</button>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="button-container">
+        <button class="button" style="background-color: #f179af;" onclick="window.location.href='/exhibitlist/';">Go to Exhibit List</button>
+    </div>
+</div>
+
+<script>
+    // JavaScript for dynamically changing the button colors
+    document.addEventListener('DOMContentLoaded', function () {
+        var colors = ['#3bb249', '#6dcff6', '#2383c6', '#2d4d9d', '#f179af'];
+        var coloredButtons = document.querySelectorAll('.button'); // Select all buttons
+
+        coloredButtons.forEach(function (button, index) {
+            // Assign a color from the list based on the button's index
+            // Skip the last button if you want to keep its green color
+            if (index < coloredButtons.length - 1) {
+                var colorIndex = index % colors.length;
+                button.style.backgroundColor = colors[colorIndex];
+            }
+        });
+    });
+</script>
+
+{% endblock content %}
