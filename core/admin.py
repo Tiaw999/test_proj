@@ -1,3 +1,9 @@
+#######################################################
+# Apps
+# Tia Walker
+# 04-04-24
+#######################################################
+
 from django.contrib import admin
 
 from .models import Exhibit, Data, Play, Media
@@ -28,7 +34,3 @@ admin.site.register(Exhibit, ExhibitAdmin)
 admin.site.register(Data, DataAdmin)
 admin.site.register(Play, PlayAdmin)
 admin.site.register(Media, MediaAdmin)
-
-
-
-
