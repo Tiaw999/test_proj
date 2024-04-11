@@ -1,13 +1,8 @@
-#######################################################
-# Apps
-# Tia Walker
-# 04-04-24
-#######################################################
-
 from django.db import models
 
 # Create your models here.
 
+# TW 4/04
 class Exhibit(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()

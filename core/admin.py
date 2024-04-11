@@ -34,3 +34,7 @@ admin.site.register(Exhibit, ExhibitAdmin)
 admin.site.register(Data, DataAdmin)
 admin.site.register(Play, PlayAdmin)
 admin.site.register(Media, MediaAdmin)
+
+
+
+
