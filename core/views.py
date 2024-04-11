@@ -56,6 +56,18 @@ def exhibit(request, pk):
     context = {'exhibit': exhibit_instance, 'form': form, 'play': play}
     return render(request, 'core/exhibit.html', context)
 
+def sendData(request):
+    play = Play.objects.all()
+    play = list(play)
+    shuffle(play)
+    form = DataForm()
+    if request.method == 'POST':
+        form = DataForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('exhibit', pk=form.cleaned_data['exhibit'].id)
+    context = {'form': form, 'play': play}
+    return render(request, 'core/exhibit.html', context)
 
 def playInfo(request):
     return render(request, 'core/play_info.html')
