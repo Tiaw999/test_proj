@@ -1,0 +1,93 @@
+/* dock.css */
+.dock {
+    margin: 0;
+    padding: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    bottom: -1px;
+    width: 100.2%;
+    background-color: #65308e;
+    padding: 0px 0;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px 10px 0 0;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+.dock .icon-button {
+    font-size: 14px;
+    background-color: transparent;
+    flex: 0.8;
+    padding: 10px 8px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: none; /* Add this line */
+}
+.dock img {
+    width: 30px;
+    height: auto;
+}
+.settings-popup {
+    display: none;
+    position: absolute;
+    right: 10px; /* Adjust based on your layout */
+    bottom: 60px; /* Adjust based on your layout */
+    z-index: 999;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    padding: 10px;
+    width: 200px; /* Adjust based on your content */
+}
+
+.settings-popup ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.settings-popup ul li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.settings-popup ul li:last-child {
+    border-bottom: none;
+}
+
+/* Animation for fading in, now faster */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s;
+}
+
+/* Updated animation for fading out, now faster */
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.fade-out {
+    animation: fadeOut 0.3s forwards; /* Adjusted to 0.3s for faster animation */
+}
+
+.language-dropdown {
+    margin-top: 5px;
+}
+
+.setting-item {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+    .dock .icon-button {
+        padding: 15px 6px;
+    }
+}

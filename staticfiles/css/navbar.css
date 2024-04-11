@@ -1,0 +1,37 @@
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    background-color: white;
+    background-image: url('/static/images/header/app-banner3.jpg'); /* Change to your image path */
+    background-size: cover; /* Cover the available space */
+    background-repeat: no-repeat; /* Prevent repeating the image */
+    background-position: left; /* Center the background image */
+    padding: 10px 10px;
+}
+
+.navbar-logo {
+    margin-left: 0px; /* Adjust the gap size as needed */
+}
+
+.navbar-logo .logo-image {
+    width: 200px;
+    height: auto; /* maintain aspect ratio */
+    border-radius: 10px; /* Rounds the corners of the logo image */
+    margin: 10px 0; /* Adds 10px margin above and below the logo image */
+}
+
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: column;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .search-bar .search-input {
+        width: calc(100% - 44px); /* Adjust for button width */
+    }
+}

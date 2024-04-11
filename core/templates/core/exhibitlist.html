@@ -8,24 +8,6 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/exhibitlist.css' %}">
 </head>
 
-<!-- Google Translate Integration -->
-<div id="google_translate_element"></div>
-
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement(
-            { 
-                pageLanguage: 'en', 
-                includedLanguages: 'en,es',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            },
-            'google_translate_element'
-        );
-    }
-</script>
-
-<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
 <div class="search-bar">
     <form method="GET" action="{% url 'exhibitlist' %}" class="search-form">
         <input type="text" name="q" placeholder="Search Exhibits..." class="search-input">
@@ -72,5 +54,7 @@ $(document).ready(function() {
     </a>
     {% endfor %}
 </div>
+
+
 
 {% endblock content %}
